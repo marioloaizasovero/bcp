@@ -1,0 +1,35 @@
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <div class="cad-tittle">
+                <h4>Listar tipos de cambios</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <button class="btn btn-primary" [routerLink]="['/moneda']"> Nuevo</button>
+            <button class="btn btn-primary" [routerLink]="['/calcular']"> Calcular</button>
+            <hr>
+            <table class="table table-bordered table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Moneda Origen</th>
+                        <th>Moneda Destino</th>
+                        <th>Valor tipo de cambio</th>
+                        <th>Option</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+
+                    <tr *ngFor="let moneda of tipoCambio">
+                        <td>{{moneda.moneda_origen}}</td>
+                        <td>{{moneda.moneda_destino}}</td>
+                        <td>{{moneda.tipo_cambio}}</td>
+                        <td><button type="button" [routerLink]="['/moneda/',moneda.id]" class="btn btn-success btn-sm"> Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-tittle">
+                <h4>Crear tipos de cambio</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="create()">
+                <div>
+                    <div class="form-group">
+                        <label for="">Moneda Origen</label>
+                        <input class="form-control" type="text" name="origin_currency" [(ngModel)]="tipoCambioRequest.moneda_origen">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Moneda Destino</label>
+                        <input class="form-control" type="text" name="destination_currency" [(ngModel)]="tipoCambioRequest.moneda_destino">
+                    </div>
+
+                    <div class=" form-group ">
+                        <label for=" ">Valor Tipo de cambio</label>
+                        <input class="form-control " type="text" name="type_change" [(ngModel)]="tipoCambioRequest.tipo_cambio">
+                    </div>
+                    <button class="btn btn-primary "> Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

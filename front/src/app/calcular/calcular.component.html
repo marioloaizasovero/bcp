@@ -1,0 +1,83 @@
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-tittle">
+                <h4>Realizar operacion de tipo de cambio</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="processCurrency()">
+                <div>
+                    <div class="form-group">
+                        <label for="">Moneda Origen</label>
+                        <select class="form-control" name="origin_currency" [(ngModel)]="tipoC.moneda_origen">
+                            <option disabled hidden value="undefined">- Seleccionar -</option>
+                            <option [ngValue]="origin.moneda_origen" *ngFor="let origin of origenMoneda">
+                                {{origin.moneda_origen}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Moneda Destino</label>
+                        <select class="form-control" name="destination_currency" [(ngModel)]="tipoC.moneda_destino">
+                            <option disabled hidden value="undefined">- Seleccionar -</option>
+                            <option [ngValue]="destination.moneda_destino" *ngFor="let destination of destinoMoneda">
+                                {{destination.moneda_destino}}</option>
+                        </select>
+                    </div>
+
+                    <div class=" form-group ">
+                        <label for=" ">Monto</label>
+                        <input type="text" class="form-control" name="monto" [(ngModel)]="monto.monto">
+                    </div>
+                    <button class="btn btn-primary "> Procesar</button>
+                </div>
+            </form>
+            <div class="well mt-2">
+                <h4>Resultado :</h4>
+                <div class="row ">
+                    <div class="col-sm-3">
+                        <label>Monto</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <label *ngIf="cambiarMontoResponse && cambiarMontoResponse.tipoCambio">{{cambiarMontoResponse.monto}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Monto con tipo de cambio</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <label *ngIf="cambiarMontoResponse && cambiarMontoResponse.tipoCambio">{{cambiarMontoResponse.montoCambiado}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Moneda origen</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <label *ngIf="cambiarMontoResponse && cambiarMontoResponse.tipoCambio">{{cambiarMontoResponse.tipoCambio.moneda_origen}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Moneda destino</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <label *ngIf="cambiarMontoResponse && cambiarMontoResponse.tipoCambio">{{cambiarMontoResponse.tipoCambio.moneda_destino}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Valor tipo de cambio</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <label *ngIf="cambiarMontoResponse && cambiarMontoResponse.tipoCambio">{{cambiarMontoResponse.tipoCambio.tipo_cambio}}</label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
