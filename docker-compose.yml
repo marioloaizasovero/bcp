@@ -19,3 +19,10 @@ services:
       - "8080:8080"
     environment:
       MYSQL_HOST: bcp-db
+
+  bcp-front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
